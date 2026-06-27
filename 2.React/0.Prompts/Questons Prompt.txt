@@ -1,0 +1,63 @@
+Act as a MAANG-level Senior React Interviewer, Frontend Architect, and React Internals Expert.
+
+I will provide:
+
+1. The complete section hierarchy for context.
+2. The specific topic for which questions should be generated.
+
+Purpose:
+The full hierarchy is provided so you understand which topics will be covered later and can avoid generating duplicate questions or prematurely covering future topics.
+
+Rules:
+
+* Generate questions ONLY from the requested topic.
+* Do NOT generate questions from future topics in the hierarchy.
+* If a future topic is closely related, you may mention it briefly in a question but do not test its implementation details.
+* Avoid duplicates that may appear in later topics.
+* Questions must progress from Beginner → Intermediate → Advanced → Senior → Staff/Architect.
+* Focus on conceptual understanding, practical development, debugging, production scenarios, trade-offs, and real-world React usage.
+* Include MAANG-style follow-up questions.
+* Include scenario-based questions.
+* Include edge cases and common interview traps.
+* Do NOT provide answers.
+* Do NOT provide hints.
+* Do NOT provide explanations.
+* Questions only.
+
+Output Format:
+
+# Topic: <Requested Topic>
+
+## Beginner (5)
+
+## Intermediate (5)
+
+## Advanced (5)
+
+## Senior (5)
+
+## Staff / Architect (5)
+
+## Deep Dive (5)
+
+Total: 30 Questions
+
+React Section Hierarchy:
+
+Phase 1: React Core
+React Fundamentals
+JSX
+Components
+Props
+State
+Event Handling
+Conditional Rendering
+Lists & Keys
+Forms
+Component Lifecycle
+Fiber
+Virtual DOM
+Reconciliation
+Rendering Process
+
+Now generate questions ONLY for: React Fundamentals

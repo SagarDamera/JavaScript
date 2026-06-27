@@ -1,0 +1,119 @@
+Recommended React Interview Roadmap
+
+Phase 1: React Core (Most Important)
+React Fundamentals
+JSX
+Components
+Props
+State
+Event Handling
+Conditional Rendering
+Lists & Keys
+Component Lifecycle
+Virtual DOM
+React Hook Form & Zod
+React Router v7
+
+
+
+Phase 2: Hooks (Very Important)
+useState
+useEffect
+useRef
+useMemo
+useCallback
+useContext
+useReducer
+Custom Hooks
+Hooks Rules
+Hooks Internals
+
+
+Phase 3: Performance (MAANG Favorite)
+React.memo
+Lazy Loading
+Code Splitting
+Suspense
+Bundle Optimization
+Render Optimization
+Memory Leaks
+Profiling
+
+
+Phase 4: State Management
+Prop Drilling
+Context API
+Redux
+Redux Toolkit
+Zustand
+MobX
+Server State vs Client State
+React Query / TanStack Query
+
+
+Phase 5: React Internals (Senior Level)
+Fiber Architecture
+Scheduler
+Reconciliation Algorithm
+Diffing Algorithm
+Render Phase
+Commit Phase
+Batching
+Event Delegation
+Concurrent Rendering
+Priority Lanes
+
+
+Phase 6: Advanced Hooks & Concurrency
+Suspense
+Transitions
+useTransition
+useDeferredValue
+Concurrent Features
+Tearing
+Race Conditions
+Async Rendering
+
+
+Phase 7: System Design for React
+Large Scale Folder Structure
+Micro Frontends
+Feature Based Architecture
+Design Systems
+Reusable Component Libraries
+State Architecture
+Performance Architecture
+Multi Tenant Applications
+
+
+Phase 8: SSR & Modern React
+SSR
+CSR
+SSG
+ISR
+Hydration
+Streaming SSR
+React Server Components
+Next.js Architecture
+
+
+Phase 9: Testing
+Jest
+React Testing Library
+Unit Testing
+Integration Testing
+Mocking
+E2E Testing
+Test Strategies
+
+
+Phase 10: Production Debugging
+Infinite Re-renders
+Memory Leaks
+Stale Closures
+Race Conditions
+Hydration Mismatches
+Context Re-render Problems
+Bundle Size Issues
+Slow Rendering
+API Synchronization Issues

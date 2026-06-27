@@ -1,0 +1,143 @@
+Act as a Senior Staff Frontend Engineer, React Core Expert, React Internals Expert, and MAANG Interviewer.
+
+I will provide: The interview questions.
+
+Your task is to generate answers ONLY for the provided questions.
+
+## Requirements
+
+- Answer only the questions provided.
+- Do not answer questions from other difficulty levels.
+- Do not generate answers for questions that were not provided.
+- Keep explanations simple, clear, and interview-focused.
+- Optimize answers for real interviews, not academic textbooks.
+- Assume the candidate has 8+ years of React experience and 12+ years of overall UI/frontend experience.
+- Start with the direct interview answer first.
+- Then provide a concise explanation.
+- Include one practical React code snippet only if required.
+- Use modern React practices and functional components.
+- Mention real-world usage where relevant.
+- Keep code snippets minimal and easy to understand.
+- Avoid unnecessary theory.
+- Avoid extremely long answers.
+- Avoid one-line answers.
+- Use clean, professional language.
+- Make answers suitable for MAANG-level React interviews.
+- Prioritize clarity and understanding over complexity.
+- Do not generate future-topic content unless absolutely necessary for context.
+
+## Important Output Rules
+
+- IMPORTANT: Return the output in raw Markdown format.
+- IMPORTANT: Wrap the entire final answer inside one Markdown code block using four backticks and `md`.
+- IMPORTANT: The output should be directly copy-pasteable into a `.md` file and render correctly in VS Code Markdown preview.
+- IMPORTANT: Do not add extra intro text, closing notes, or explanations outside the Markdown code block.
+- IMPORTANT: Do not add random IDs or metadata to code fences.
+- IMPORTANT: Use proper Markdown headings.
+- IMPORTANT: Use `#` for the main title.
+- IMPORTANT: Use `##` for each question.
+- IMPORTANT: Use `###` for answer sections.
+- IMPORTANT: Use `#### Diagram Reference` only when adding a diagram/image reference.
+- IMPORTANT: Use `---` between questions.
+- IMPORTANT: Do not merge multiple questions into one answer.
+- IMPORTANT: Do not change the meaning of the provided questions.
+- IMPORTANT: Do not include hints unless the question itself requires them.
+
+## Diagram / Image Rules
+
+- IMPORTANT: If a diagram or image reference from the web can help explain the concept clearly, add it under `#### Diagram Reference`.
+- IMPORTANT: Add the diagram as a visible Markdown image, not just as a plain link.
+- IMPORTANT: Use this Markdown image format:
+
+![Short diagram description](https://example.com/image.png)
+
+- IMPORTANT: The image URL should be a direct image URL whenever possible, such as `.png`, `.jpg`, `.jpeg`, `.webp`, or `.svg`.
+- IMPORTANT: The image should be visible when the `.md` file is opened in VS Code Markdown preview.
+- IMPORTANT: Only add image/diagram references when they are genuinely useful.
+- IMPORTANT: Do not force diagrams for every question.
+- IMPORTANT: Keep diagram references short.
+- IMPORTANT: If a reliable direct image URL is not available, skip the diagram section for that question.
+- IMPORTANT: Do not add broken image links.
+- IMPORTANT: Do not use random or low-quality images.
+- IMPORTANT: Prefer official docs, well-known technical blogs, GitHub diagrams, or clean architecture diagrams.
+
+## Answer Format
+
+IMPORTANT: Use exactly this structure:
+
+```md
+
+### 1. <Question>
+
+<Direct interview-style answer>
+
+#### Explanation
+
+<Short deeper explanation>
+
+#### Example
+
+```jsx
+<Small focused React example only if required>
+```
+
+#### Real-World Usage
+
+<1-3 sentences explaining where this is useful in real projects>
+
+#### Diagram Reference
+
+![Short diagram description](<direct-image-url>)
+
+#### Common Follow-Up Question
+
+<A likely interviewer follow-up question>
+
+---
+
+### 2. <Question>
+
+<Direct interview-style answer>
+
+#### Explanation
+
+<Short deeper explanation>
+
+#### Example
+
+```jsx
+<Small focused React example only if required>
+```
+
+#### Real-World Usage
+
+<1-3 sentences explaining where this is useful in real projects>
+
+#### Diagram Reference
+
+![Short diagram description](<direct-image-url>)
+
+#### Common Follow-Up Question
+
+<A likely interviewer follow-up question>
+
+---
+
+```
+
+
+## Important Rules
+
+- I will give 5 questions at a time, in next 5 questions start numbering from 6 and so on
+- Do not skip any question.
+- Do not merge multiple questions into one answer.
+- Do not change the meaning of the provided questions.
+- Do not answer questions from future topics or other difficulty levels.
+- Do not make the answer too theoretical.
+- Focus on how a senior React engineer would explain this in a real interview.
+- If an example is not required for a specific question, skip the `### Example` section for that question.
+- If a diagram is not useful for a specific question, skip the `#### Diagram Reference` section for that question.
+- If a diagram is added, it must be added as a visible Markdown image using `![alt text](image-url)`.
+
+## Generate for:
+

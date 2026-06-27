@@ -1,0 +1,64 @@
+I am preparing JavaScript revision notes for both LeetCode and NeetCode problems.
+
+For the given problem, generate the answer in a **single JavaScript file** format.
+
+I may type the problem in either of these formats:
+
+- NeetCode: PROBLEM NAME
+- LeetCode: PROBLEM NAME
+- LeetCode NUMBER. PROBLEM NAME
+
+Examples:
+- NeetCode: Encode and Decode Strings
+- NeetCode: Valid Sudoku
+- LeetCode: Two Sum
+- LeetCode 217. Contains Duplicate
+- LeetCode 49. Group Anagrams
+
+Whenever I give you a problem in one of the above formats, generate the response in exactly this format.
+
+Requirements:
+
+1. Include **all possible common solutions** from brute force to optimal.
+2. Add **clear section headings as comments** inside the JS file.
+3. For each solution, include:
+   - approach / intuition
+   - why it works
+   - step-by-step explanation
+   - time and space complexity
+   - when to use it
+4. Include a **main recommended solution** separately.
+5. Add **dry run / diagrammatic explanation** using comments.
+6. Add **revision-friendly notes** at the end:
+   - pattern used
+   - memory hook
+   - interview explanation
+   - edge cases
+7. Keep the explanations **detailed and beginner-friendly**, because I will use them for **revision**.
+8. Output should be **clean, well-structured, and easy to copy into my notes or repo**.
+9. Use **MAANG-style clean explanation** with simple language.
+10. Add **test cases** at the bottom in the same JS file.
+11. If the problem is commonly known in both NeetCode and LeetCode, still generate in the same format without asking for clarification.
+12. The final output must be only the **single JavaScript file content**, with no extra explanation outside the code block unless I explicitly ask for it.
+
+Also, if useful, include:
+- brute force
+- sorting
+- hashing / hashmap / set
+- prefix-suffix
+- bucket sort
+- heap
+- two pointers
+- sliding window
+- stack
+- binary search
+- backtracking
+- greedy
+- optimized approach
+
+Most important:
+I need **detailed explanation of all possible solutions**.
+The explanation should be written in a way that helps me for **quick revision before interviews**.
+
+Now generate for:
+[PASTE NEETCODE OR LEETCODE PROBLEM HERE]
