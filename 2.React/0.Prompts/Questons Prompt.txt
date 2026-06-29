@@ -28,19 +28,15 @@ Output Format:
 
 # Topic: <Requested Topic>
 
-## Beginner (5)
+## Intermediate (3)
 
-## Intermediate (5)
+## Advanced / Senior (4)
 
-## Advanced (5)
+## Staff / Architect (2)
 
-## Senior (5)
+## Deep Dive (1) Scenario based Question
 
-## Staff / Architect (5)
-
-## Deep Dive (5)
-
-Total: 30 Questions
+Total: 10 Questions
 
 React Section Hierarchy:
 
