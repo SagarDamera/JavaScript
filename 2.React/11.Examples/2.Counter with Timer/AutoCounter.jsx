@@ -16,12 +16,12 @@ function AutoCounter() {
     };
   }, [isRunning]);
 
-  const handleStop = () => {
-    setIsRunning(false);
-  };
-
   const handleStart = () => {
     setIsRunning(true);
+  };
+
+  const handleStop = () => {
+    setIsRunning(false);
   };
 
   const handleReset = () => {
@@ -30,15 +30,47 @@ function AutoCounter() {
   };
 
   return (
-    <div>
-      <h2>Auto Counter</h2>
+    <section
+      aria-label="auto counter component"
+      data-testid="auto-counter-container"
+    >
+      <h2 data-testid="auto-counter-title">Auto Counter</h2>
 
-      <p>Count: {count}</p>
+      <p aria-live="polite" data-testid="count-value">
+        Count: {count}
+      </p>
 
-      <button onClick={handleStart}>Start</button>
-      <button onClick={handleStop}>Stop</button>
-      <button onClick={handleReset}>Reset</button>
-    </div>
+      <p data-testid="counter-status">
+        Status: {isRunning ? "Running" : "Stopped"}
+      </p>
+
+      <button
+        type="button"
+        onClick={handleStart}
+        aria-label="start auto counter"
+        data-testid="start-button"
+      >
+        Start
+      </button>
+
+      <button
+        type="button"
+        onClick={handleStop}
+        aria-label="stop auto counter"
+        data-testid="stop-button"
+      >
+        Stop
+      </button>
+
+      <button
+        type="button"
+        onClick={handleReset}
+        aria-label="reset auto counter"
+        data-testid="reset-button"
+      >
+        Reset
+      </button>
+    </section>
   );
 }
 

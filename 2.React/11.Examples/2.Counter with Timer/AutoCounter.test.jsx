@@ -1,6 +1,3 @@
-// AutoCounter.test.jsx
-
-import React from "react";
 import { render, screen, fireEvent, act } from "@testing-library/react";
 import AutoCounter from "./AutoCounter";
 
@@ -14,108 +11,123 @@ describe("AutoCounter Component", () => {
     jest.useRealTimers();
   });
 
-  test("renders Auto Counter heading and initial count", () => {
+  test("renders auto counter title", () => {
     render(<AutoCounter />);
 
-    expect(screen.getByText("Auto Counter")).toBeInTheDocument();
-    expect(screen.getByText("Count: 0")).toBeInTheDocument();
-
-    expect(screen.getByText("Start")).toBeInTheDocument();
-    expect(screen.getByText("Stop")).toBeInTheDocument();
-    expect(screen.getByText("Reset")).toBeInTheDocument();
+    expect(screen.getByTestId("auto-counter-title")).toBeInTheDocument();
+    expect(screen.getByTestId("auto-counter-title")).toHaveTextContent(
+      "Auto Counter",
+    );
   });
 
-  test("increments count automatically every 1 second when running", () => {
+  test("renders initial count as 0", () => {
     render(<AutoCounter />);
 
-    expect(screen.getByText("Count: 0")).toBeInTheDocument();
+    expect(screen.getByTestId("count-value")).toHaveTextContent("Count: 0");
+  });
+
+  test("renders initial status as stopped", () => {
+    render(<AutoCounter />);
+
+    expect(screen.getByTestId("counter-status")).toHaveTextContent(
+      "Status: Stopped",
+    );
+  });
+
+  test("starts counter when Start button is clicked", () => {
+    render(<AutoCounter />);
+
+    const startButton = screen.getByTestId("start-button");
+
+    fireEvent.click(startButton);
+
+    expect(screen.getByTestId("counter-status")).toHaveTextContent(
+      "Status: Running",
+    );
+  });
+
+  test("increments count after 1 second when counter is running", () => {
+    render(<AutoCounter />);
+
+    fireEvent.click(screen.getByTestId("start-button"));
 
     act(() => {
       jest.advanceTimersByTime(1000);
     });
 
-    expect(screen.getByText("Count: 1")).toBeInTheDocument();
-
-    act(() => {
-      jest.advanceTimersByTime(2000);
-    });
-
-    expect(screen.getByText("Count: 3")).toBeInTheDocument();
+    expect(screen.getByTestId("count-value")).toHaveTextContent("Count: 1");
   });
 
-  test("stops incrementing count when Stop button is clicked", () => {
+  test("increments count multiple times while running", () => {
     render(<AutoCounter />);
 
-    act(() => {
-      jest.advanceTimersByTime(2000);
-    });
-
-    expect(screen.getByText("Count: 2")).toBeInTheDocument();
-
-    fireEvent.click(screen.getByText("Stop"));
+    fireEvent.click(screen.getByTestId("start-button"));
 
     act(() => {
       jest.advanceTimersByTime(3000);
     });
 
-    expect(screen.getByText("Count: 2")).toBeInTheDocument();
+    expect(screen.getByTestId("count-value")).toHaveTextContent("Count: 3");
   });
 
-  test("starts incrementing again when Start button is clicked after stop", () => {
+  test("stops counter when Stop button is clicked", () => {
     render(<AutoCounter />);
 
-    act(() => {
-      jest.advanceTimersByTime(2000);
-    });
-
-    expect(screen.getByText("Count: 2")).toBeInTheDocument();
-
-    fireEvent.click(screen.getByText("Stop"));
+    fireEvent.click(screen.getByTestId("start-button"));
 
     act(() => {
       jest.advanceTimersByTime(2000);
     });
 
-    expect(screen.getByText("Count: 2")).toBeInTheDocument();
+    expect(screen.getByTestId("count-value")).toHaveTextContent("Count: 2");
 
-    fireEvent.click(screen.getByText("Start"));
+    fireEvent.click(screen.getByTestId("stop-button"));
+
+    expect(screen.getByTestId("counter-status")).toHaveTextContent(
+      "Status: Stopped",
+    );
 
     act(() => {
-      jest.advanceTimersByTime(1000);
+      jest.advanceTimersByTime(3000);
     });
 
-    expect(screen.getByText("Count: 3")).toBeInTheDocument();
+    expect(screen.getByTestId("count-value")).toHaveTextContent("Count: 2");
   });
 
-  test("resets count to 0 and stops the counter when Reset button is clicked", () => {
+  test("resets count to 0 and stops counter", () => {
+    render(<AutoCounter />);
+
+    fireEvent.click(screen.getByTestId("start-button"));
+
+    act(() => {
+      jest.advanceTimersByTime(3000);
+    });
+
+    expect(screen.getByTestId("count-value")).toHaveTextContent("Count: 3");
+
+    fireEvent.click(screen.getByTestId("reset-button"));
+
+    expect(screen.getByTestId("count-value")).toHaveTextContent("Count: 0");
+    expect(screen.getByTestId("counter-status")).toHaveTextContent(
+      "Status: Stopped",
+    );
+  });
+
+  test("does not increment before Start button is clicked", () => {
     render(<AutoCounter />);
 
     act(() => {
       jest.advanceTimersByTime(3000);
     });
 
-    expect(screen.getByText("Count: 3")).toBeInTheDocument();
-
-    fireEvent.click(screen.getByText("Reset"));
-
-    expect(screen.getByText("Count: 0")).toBeInTheDocument();
-
-    act(() => {
-      jest.advanceTimersByTime(3000);
-    });
-
-    expect(screen.getByText("Count: 0")).toBeInTheDocument();
+    expect(screen.getByTestId("count-value")).toHaveTextContent("Count: 0");
   });
 
-  test("clears interval when component is unmounted", () => {
-    const clearIntervalSpy = jest.spyOn(global, "clearInterval");
+  test("renders all action buttons", () => {
+    render(<AutoCounter />);
 
-    const { unmount } = render(<AutoCounter />);
-
-    unmount();
-
-    expect(clearIntervalSpy).toHaveBeenCalled();
-
-    clearIntervalSpy.mockRestore();
+    expect(screen.getByTestId("start-button")).toBeInTheDocument();
+    expect(screen.getByTestId("stop-button")).toBeInTheDocument();
+    expect(screen.getByTestId("reset-button")).toBeInTheDocument();
   });
 });

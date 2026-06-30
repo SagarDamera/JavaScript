@@ -1,0 +1,25 @@
+Now generate answer as following for below
+
+1. Creational Patterns
+1.1 Factory Pattern
+1.2 Constructor Pattern
+1.3 Singleton Pattern
+1.4 Prototype Pattern
+
+
+OUTPUT: 
+
+```md
+
+# Creational Patterns
+
+## Factory Pattern
+
+Definition
+Real world example
+
+```js
+Code example
+```
+If it is used any where in react if yes give me explanation with small react example
+```

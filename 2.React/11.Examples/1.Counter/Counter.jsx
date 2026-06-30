@@ -16,15 +16,40 @@ function Counter() {
   };
 
   return (
-    <div>
-      <h2>Counter</h2>
+    <section aria-label="counter component" data-testid="counter-container">
+      <h2 data-testid="counter-title">Counter</h2>
 
-      <p>Count: {count}</p>
+      <p aria-live="polite" data-testid="count-value">
+        Count: {count}
+      </p>
 
-      <button onClick={handleIncrement}>Increment</button>
-      <button onClick={handleDecrement}>Decrement</button>
-      <button onClick={handleReset}>Reset</button>
-    </div>
+      <button
+        type="button"
+        onClick={handleIncrement}
+        aria-label="increment count"
+        data-testid="increment-button"
+      >
+        Increment
+      </button>
+
+      <button
+        type="button"
+        onClick={handleDecrement}
+        aria-label="decrement count"
+        data-testid="decrement-button"
+      >
+        Decrement
+      </button>
+
+      <button
+        type="button"
+        onClick={handleReset}
+        aria-label="reset count"
+        data-testid="reset-button"
+      >
+        Reset
+      </button>
+    </section>
   );
 }
 

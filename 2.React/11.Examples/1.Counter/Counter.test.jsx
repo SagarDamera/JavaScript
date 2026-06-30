@@ -1,90 +1,94 @@
-// Counter.test.jsx
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Counter from "./Counter";
 
-describe("Counter", () => {
+describe("Counter Component", () => {
   test("renders counter title", () => {
     render(<Counter />);
 
-    expect(screen.getByRole("heading", { name: /counter/i })).toBeInTheDocument();
+    const titleElement = screen.getByTestId("counter-title");
+
+    expect(titleElement).toBeInTheDocument();
+    expect(titleElement).toHaveTextContent("Counter");
   });
 
   test("renders initial count as 0", () => {
     render(<Counter />);
 
-    expect(screen.getByText("Count: 0")).toBeInTheDocument();
+    const countElement = screen.getByTestId("count-value");
+
+    expect(countElement).toBeInTheDocument();
+    expect(countElement).toHaveTextContent("Count: 0");
   });
 
-  test("increments count when Increment button is clicked", async () => {
-    const user = userEvent.setup();
-
+  test("increments count when Increment button is clicked", () => {
     render(<Counter />);
 
-    const incrementButton = screen.getByRole("button", {
-      name: /increment/i,
-    });
+    const incrementButton = screen.getByTestId("increment-button");
+    const countElement = screen.getByTestId("count-value");
 
-    await user.click(incrementButton);
+    fireEvent.click(incrementButton);
 
-    expect(screen.getByText("Count: 1")).toBeInTheDocument();
+    expect(countElement).toHaveTextContent("Count: 1");
   });
 
-  test("decrements count when Decrement button is clicked", async () => {
-    const user = userEvent.setup();
-
+  test("decrements count when Decrement button is clicked", () => {
     render(<Counter />);
 
-    const decrementButton = screen.getByRole("button", {
-      name: /decrement/i,
-    });
+    const decrementButton = screen.getByTestId("decrement-button");
+    const countElement = screen.getByTestId("count-value");
 
-    await user.click(decrementButton);
+    fireEvent.click(decrementButton);
 
-    expect(screen.getByText("Count: -1")).toBeInTheDocument();
+    expect(countElement).toHaveTextContent("Count: -1");
   });
 
-  test("resets count to 0 when Reset button is clicked", async () => {
-    const user = userEvent.setup();
-
+  test("resets count to 0 when Reset button is clicked", () => {
     render(<Counter />);
 
-    const incrementButton = screen.getByRole("button", {
-      name: /increment/i,
-    });
+    const incrementButton = screen.getByTestId("increment-button");
+    const resetButton = screen.getByTestId("reset-button");
+    const countElement = screen.getByTestId("count-value");
 
-    const resetButton = screen.getByRole("button", {
-      name: /reset/i,
-    });
+    fireEvent.click(incrementButton);
+    fireEvent.click(incrementButton);
 
-    await user.click(incrementButton);
-    await user.click(incrementButton);
+    expect(countElement).toHaveTextContent("Count: 2");
 
-    expect(screen.getByText("Count: 2")).toBeInTheDocument();
+    fireEvent.click(resetButton);
 
-    await user.click(resetButton);
-
-    expect(screen.getByText("Count: 0")).toBeInTheDocument();
+    expect(countElement).toHaveTextContent("Count: 0");
   });
 
-  test("handles multiple increment and decrement clicks correctly", async () => {
-    const user = userEvent.setup();
-
+  test("handles multiple increment clicks correctly", () => {
     render(<Counter />);
 
-    const incrementButton = screen.getByRole("button", {
-      name: /increment/i,
-    });
+    const incrementButton = screen.getByTestId("increment-button");
+    const countElement = screen.getByTestId("count-value");
 
-    const decrementButton = screen.getByRole("button", {
-      name: /decrement/i,
-    });
+    fireEvent.click(incrementButton);
+    fireEvent.click(incrementButton);
+    fireEvent.click(incrementButton);
 
-    await user.click(incrementButton);
-    await user.click(incrementButton);
-    await user.click(incrementButton);
-    await user.click(decrementButton);
+    expect(countElement).toHaveTextContent("Count: 3");
+  });
 
-    expect(screen.getByText("Count: 2")).toBeInTheDocument();
+  test("handles multiple decrement clicks correctly", () => {
+    render(<Counter />);
+
+    const decrementButton = screen.getByTestId("decrement-button");
+    const countElement = screen.getByTestId("count-value");
+
+    fireEvent.click(decrementButton);
+    fireEvent.click(decrementButton);
+
+    expect(countElement).toHaveTextContent("Count: -2");
+  });
+
+  test("renders all action buttons", () => {
+    render(<Counter />);
+
+    expect(screen.getByTestId("increment-button")).toBeInTheDocument();
+    expect(screen.getByTestId("decrement-button")).toBeInTheDocument();
+    expect(screen.getByTestId("reset-button")).toBeInTheDocument();
   });
 });
